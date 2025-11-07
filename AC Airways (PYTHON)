@@ -4,7 +4,7 @@ import random
 #Making required variables.
 s=''
 a=''
-money=100000
+money=2000
 
 #Function for winning ingame.
 def win(x):
