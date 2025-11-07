@@ -25,7 +25,7 @@ A simple Python command‑line game that lets you **collect money by playing Roc
 
 - **Language:** Python 3
 - **Entry point:** `start(s)` (called at the bottom of the script)
-- **Initial balance:** ₹100000
+- **Initial balance:** ₹2000
 - **Mini‑game:** Rock–Paper–Scissors vs a computer opponent
   - **Win:** +₹1000
   - **Loss:** −₹250
