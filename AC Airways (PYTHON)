@@ -1,0 +1,163 @@
+#Importing required modules.
+import random
+
+#Making required variables.
+s=''
+a=''
+money=100000
+
+#Function for winning ingame.
+def win(x):
+    global money 
+    money=money+1000
+    
+#Function for loosing ingame.
+def loose(x):
+    global money
+    money=money-250
+    
+#Making function for start screen.
+def start(s):
+        print("1 - Collect Money")
+        print("2 - Check Balance")
+        print("3 - Book AirWays Ticket")
+        print("4 - Check Destinations.")
+        print("Price - ₹10/km")
+        print("Note-Make Sure your 'CapsLock' is off.")
+        choice=int(input("Enter Your Choice - "))
+        if choice == 1:
+             x=''
+             game(x)
+        elif choice == 2:
+             print("Your Current Balance:",money)
+             back(a)
+        elif choice == 3:
+             b=''
+             booking(b)
+        elif choice == 4:
+             p=''
+             places(p)
+
+#Making function for game.    
+def game(x):
+        
+        x=str(input("Choose One(Stone/Paper/Scissor): "))
+     
+        bot_choice=random.randint(1,4)
+        
+        if bot_choice == 1:
+            bot_choice='stone'
+        elif bot_choice == 2:
+            bot_choice='paper'
+        elif bot_choice == 3:
+            bot_choice='scissor' 
+            
+        if x == 'stone' and bot_choice == 'stone':
+            print("Its a Tie! Computer also Chose",bot_choice)
+        elif x == 'scissor' and bot_choice == 'scissor':
+            print("Its a Tie! Computer also Chose",botchoice)
+        elif x == 'paper' and bot_choice == 'paper':
+            print("Its a Tie! Computer also Chose",botchoice)
+        elif x == 'stone' and bot_choice == 'scissor':
+            print('You Won! and got ₹1000')
+            win(money)
+        elif x == 'stone' and bot_choice == 'paper':
+            print("You Lost! and Lost ₹250")
+            loose(money)
+        elif x == 'paper' and bot_choice == 'scissor':
+            print("You Lost! and Lost ₹250")
+            loose(money)
+        elif x == 'paper' and bot_choice == 'stone':
+            print("You Won! and got ₹1000")
+            win(money)
+        elif x == 'scissor' and bot_choice == 'paper':
+            print("You Won! and got ₹1000")
+            win(money)
+        elif x == 'scissor' and bot_choice == 'stone':
+            print("You Lost! and Lost ₹250")
+            loose(money)
+                        
+        play_again=str(input("Do You Want To Play Again?(y/n)"))
+        if play_again == 'y':
+            game(x)
+        else:
+            start(s)
+          
+#Making Function for ticket booking.
+def booking(b):
+        boarding=str(input("Enter Boarding Place: "))    
+        destination=str(input("Enter Arrival Place: "))
+        if boarding == 'chennai' and destination == 'bangalore':
+            print("Your Journey = 350kms\nTotal Charges = ₹3500")
+            confirm=str(input("Are you sure you want to continue(y/n): "))
+            if confirm == 'y' and money>=3500:
+                print("You Successfully purchased a ticket!")                   
+            elif confirm == 'y' and money<3500:
+                print("Insufficient Money")
+                back(a)
+
+        elif boarding == 'chennai' and destination == 'raipur':
+            print("Your Journey = 1200kms\nTotal Charges = ₹12000")
+            confirm=str(input("Are you sure you want to continue(y/n): "))
+            if confirm == 'y' and money>=12000:
+                print("You Successfully purchased a ticket!")
+            elif confirm == 'y' and money<12000:
+                print("Insufficient Money")
+                back(a)
+  
+        elif boarding == 'chennai' and destination == 'mumbai':
+            print("Your Journey = 1300kms\nTotal Charges = ₹13000")
+            confirm=str(input("Are you sure you want to continue(y/n): "))
+            if confirm == 'y' and money>=13000:
+                print("You Successfully purchased a ticket!")
+            elif confirm == 'y' and money<13000:
+                print("Insufficient Money")
+            back(a)
+        elif boarding == 'bangalore' and destination == 'raipur':
+            print("Your Journey = 850kms\nTotal Charges = ₹8500")
+            confirm=str(input("Are you sure you want to continue(y/n): "))
+            if confirm == 'y' and money>=8500:
+                print("You Successfully purchased a ticket!")
+            elif confirm == 'y' and money<8500:
+                print("Insufficient Money")
+            back(a)
+        elif boarding == 'bangalore' and destination == 'mumbai':
+            print("Your Journey = 900kms\nTotal Charges = ₹9000")
+            confirm=str(input("Are you sure you want to continue(y/n): "))
+            if confirm == 'y' and money>=9000:
+                print("You Successfully purchased a ticket!")
+            elif confirm == 'y' and money<9000:
+                print("Insufficient Money")
+            back(a)
+        elif boarding == 'raipur' and destination == 'mumbai' :
+            print("Your Journey = 100kms\nTotal Charges = ₹1000")
+            confirm=str(input("Are you sure you want to continue(y/n): "))
+            if confirm == 'y' and money>=1000:
+                print("You Successfully purchased a ticket!")
+            elif confirm == 'y' and money<1000:
+                print("Insufficient Money")
+            back(a)
+
+        elif boarding == 'mumbai' and destination == 'raipur' :
+            print("Your Journey = 100kms\nTotal Charges = ₹1000")
+            confirm=str(input("Are you sure you want to continue(y/n): "))
+            if confirm == 'y' and money>=1000:
+                print("You Successfully purchased a ticket!")
+            elif confirm == 'y' and money<1000:
+                print("Insufficient Money")
+            back(a)
+            
+#Making function to show places and their distance.
+def places(p):
+    print("Chennai - 0km")
+    print("Bangalore - 350km")
+    print("Raipur - 1200km")
+    print("Mumbai - 1300km")
+    back(a)
+ 
+#Function to return to start screen.
+def back(a):
+    back=str(input("Enter 'b' for returning to main menu: "))
+    if back == 'b':
+        start(s)
+start(s)
